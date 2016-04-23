@@ -2,4 +2,5 @@
     <string name="app_name">RainGo</string>
     <string name="schedule_button">Schedule</string>
     <string name="closet_button">Closet</string>
+    <string name="action_settings">Location</string>
 </resources>
