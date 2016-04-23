@@ -14,15 +14,15 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
-    String location = "New York, NY";
+    String location = "Elizabethtown, PA";
     TextView locationName, temperature, weatherType;
     JsonParser weatherGet = new JsonParser();
     String[] locationInfo = new String[5];
 
     public void weatherGet() {
+        //locationInfo[0] is the name of the city, locationInfo[1] is the location key of the city
         locationInfo = weatherGet.locationFinder(location);
-        System.out.println("This is " +locationInfo[0] + "'s location key: " + locationInfo[1]);
-        //weatherGet.currentConditions(locationInfo[1]);
+        weatherGet.currentConditions(locationInfo[1]);
     }
 
     @Override
@@ -35,7 +35,9 @@ public class MainActivity extends AppCompatActivity {
             locationName = (TextView) findViewById(R.id.locationName);
             locationName.setText(locationInfo[0]);
             temperature = (TextView) findViewById(R.id.temperature);
+            temperature.setText(weatherGet.tempValue + " " + weatherGet.tempUnit);
             weatherType = (TextView) findViewById(R.id.weatherType);
+            weatherType.setText(weatherGet.weatherType);
     }
 
     public boolean onCreateOptionsMenu(Menu menu){

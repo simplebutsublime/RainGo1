@@ -1,6 +1,5 @@
 package com.example.nick.raingo;
 
-import java.io.*;
 import java.util.concurrent.ExecutionException;
 
 import org.json.JSONException;
@@ -9,35 +8,39 @@ import org.json.JSONObject;
 /**
  * Created by nitta_000 on 4/21/2016.
  */
-public class JsonParser extends JsonGetter{
+public class JsonParser {
 
-    static String[] locationInfo = new String[5];
-    static Double tempValue;
-    static String tempUnit;
-    static String weatherType;
-    //static JSONObject json = new JSONObject();
+    String[] locationInfo = new String[5];
+    Double tempValue;
+    String tempUnit;
+    String weatherType;
     String locationKey = "";
     final String APIKEY = "ecd4986e664e456f84ccc493ad393b78";
     String location = "";
+    LocationGetter locationGet = new LocationGetter();
+    JsonGetter jsonGet = new JsonGetter();
+    JSONObject json = new JSONObject();
 
     JsonParser() {
-        for(int i = 0; i<5; i++){
-            locationInfo[i] = "";
-        }
     }
-
 
     //currentConditions gets the temperature and weather type values from the accuweather servers
     //for the city requested by the user
     public void currentConditions(String locationKey) {
         try {
             String currentCondUrl = "http://apidev.accuweather.com/currentconditions/v1/" + locationKey + ".json?apikey=" + APIKEY;
-            execute(currentCondUrl);
+            jsonGet.execute(currentCondUrl);
+            json = jsonGet.get();
             weatherType = (String) json.get("WeatherText");
             json = json.getJSONObject("Temperature");
             json = json.getJSONObject("Imperial");
             tempValue = (Double) json.get("Value");
             tempUnit = (String) json.get("Unit");
+            System.out.println("It is " + weatherType + " and " + tempValue + " " + tempUnit);
+        }catch(InterruptedException e) {
+            System.out.println(e.getMessage());
+        }catch(ExecutionException e){
+            System.out.println(e.getMessage());
         }catch(JSONException e){
             System.out.println("JsonPARSER CurrentConditions JSONException: " + e.getMessage());
         }
@@ -48,9 +51,9 @@ public class JsonParser extends JsonGetter{
         try {
             String shortLocation = whiteSpaceDeleter(location);
             String locationUrl = "http://apidev.accuweather.com/locations/v1/search?q=" + shortLocation + "&apikey=" + APIKEY;
-            execute(locationUrl);
-            json = get();
-            System.out.println("HELLO HERE IS JASON: " + json);
+            locationGet.execute(locationUrl);
+            json = locationGet.get();
+            System.out.println("HERE'S JASON: " + json);
             locationInfo[0] = (String) json.get("EnglishName");
             locationInfo[1] = (String) json.get("Key");
             return locationInfo;

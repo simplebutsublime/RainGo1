@@ -3,4 +3,5 @@
     <string name="schedule_button">Schedule</string>
     <string name="closet_button">Closet</string>
     <string name="action_settings">Location</string>
+    <string name="action_help">Help</string>
 </resources>
