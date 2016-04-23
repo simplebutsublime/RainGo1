@@ -38,7 +38,7 @@ class JsonGetter extends AsyncTask<String, Void, JSONObject> {
             BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
             String jsonText = readAll(rd);
             jsonText = jsonText.substring(1, jsonText.length() - 1);
-            System.out.println(jsonText);
+            //System.out.println(jsonText);
             JSONObject json = new JSONObject(jsonText);
             is.close();
             return json;
@@ -49,8 +49,9 @@ class JsonGetter extends AsyncTask<String, Void, JSONObject> {
         }
     }
 
-    public void onPostExecute(JSONObject json){
-        this.json = json;
+    public void onPostExecute(JSONObject apple){
+        json = apple;
+        System.out.println("HERE'S JASON: " + json);
     }
 
     JsonGetter() {

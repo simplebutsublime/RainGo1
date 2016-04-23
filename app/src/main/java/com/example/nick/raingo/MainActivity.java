@@ -14,14 +14,14 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
-    String location = "Elizabethtown, PA";
+    String location = "New York, NY";
     TextView locationName, temperature, weatherType;
     JsonParser weatherGet = new JsonParser();
-    String locationInfo = "";
+    String[] locationInfo = new String[5];
 
     public void weatherGet() {
         locationInfo = weatherGet.locationFinder(location);
-        //System.out.println(locationInfo[1]);
+        System.out.println("This is " +locationInfo[0] + "'s location key: " + locationInfo[1]);
         //weatherGet.currentConditions(locationInfo[1]);
     }
 
@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
             setSupportActionBar(mainToolbar);
             weatherGet();
             locationName = (TextView) findViewById(R.id.locationName);
+            locationName.setText(locationInfo[0]);
             temperature = (TextView) findViewById(R.id.temperature);
             weatherType = (TextView) findViewById(R.id.weatherType);
     }

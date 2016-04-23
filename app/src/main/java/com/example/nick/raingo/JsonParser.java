@@ -1,6 +1,7 @@
 package com.example.nick.raingo;
 
 import java.io.*;
+import java.util.concurrent.ExecutionException;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,31 +29,38 @@ public class JsonParser extends JsonGetter{
 
     //currentConditions gets the temperature and weather type values from the accuweather servers
     //for the city requested by the user
-    public void currentConditions(String locationKey) throws JSONException {
-
-        String currentCondUrl = "http://apidev.accuweather.com/currentconditions/v1/" + locationKey + ".json?apikey=" + APIKEY;
-        execute(currentCondUrl);
-        weatherType = (String) json.get("WeatherText");
-        json = json.getJSONObject("Temperature");
-        json = json.getJSONObject("Imperial");
-        tempValue = (Double) json.get("Value");
-        tempUnit = (String) json.get("Unit");
-
+    public void currentConditions(String locationKey) {
+        try {
+            String currentCondUrl = "http://apidev.accuweather.com/currentconditions/v1/" + locationKey + ".json?apikey=" + APIKEY;
+            execute(currentCondUrl);
+            weatherType = (String) json.get("WeatherText");
+            json = json.getJSONObject("Temperature");
+            json = json.getJSONObject("Imperial");
+            tempValue = (Double) json.get("Value");
+            tempUnit = (String) json.get("Unit");
+        }catch(JSONException e){
+            System.out.println("JsonPARSER CurrentConditions JSONException: " + e.getMessage());
+        }
     }
 
     //locationFinder gets the needed information about the requested city from the AccuWeather servers
-    public String locationFinder(String location) {
-        //try {
+    public String[] locationFinder(String location) {
+        try {
             String shortLocation = whiteSpaceDeleter(location);
             String locationUrl = "http://apidev.accuweather.com/locations/v1/search?q=" + shortLocation + "&apikey=" + APIKEY;
             execute(locationUrl);
+            json = get();
             System.out.println("HELLO HERE IS JASON: " + json);
-            //locationInfo[0] = (String) json.get("EnglishName");
-            //locationInfo[1] = (String) json.get("Key");
-            return locationInfo[1];
-        //} catch(JSONException e) {
-          //  throw new NoSuchElementException("JsonPARSER's fucking JSONException: " + e.getMessage());
-        //}
+            locationInfo[0] = (String) json.get("EnglishName");
+            locationInfo[1] = (String) json.get("Key");
+            return locationInfo;
+        } catch(InterruptedException e){
+            throw new NoSuchElementException("JsonPARSER's fucking InterruptedException: " + e.getMessage());
+        } catch(ExecutionException e){
+            throw new NoSuchElementException("JsonPARSER's fucking ExecutionException: " + e.getMessage());
+        } catch(JSONException e) {
+            throw new NoSuchElementException("JsonPARSER's fucking JSONException: " + e.getMessage());
+        }
     }
 
     //This method deletes white space in the location the user entered so the url
