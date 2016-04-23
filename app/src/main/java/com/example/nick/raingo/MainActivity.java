@@ -16,23 +16,25 @@ public class MainActivity extends AppCompatActivity {
 
     String location = "Elizabethtown, PA";
     TextView locationName, temperature, weatherType;
-    JsonParser weatherGet;
-    String[] locationInfo = new String[5];
+    JsonParser weatherGet = new JsonParser();
+    String locationInfo = "";
 
-        //locationInfo = weatherGet.locationFinder(location);
+    public void weatherGet() {
+        locationInfo = weatherGet.locationFinder(location);
         //System.out.println(locationInfo[1]);
         //weatherGet.currentConditions(locationInfo[1]);
-
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar mainToolbar = (Toolbar) findViewById(R.id.main_toolbar);
-        setSupportActionBar(mainToolbar);
-        locationName = (TextView) findViewById(R.id.locationName);
-        temperature = (TextView) findViewById(R.id.temperature);
-        weatherType = (TextView) findViewById(R.id.weatherType);
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+            Toolbar mainToolbar = (Toolbar) findViewById(R.id.main_toolbar);
+            setSupportActionBar(mainToolbar);
+            weatherGet();
+            locationName = (TextView) findViewById(R.id.locationName);
+            temperature = (TextView) findViewById(R.id.temperature);
+            weatherType = (TextView) findViewById(R.id.weatherType);
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
