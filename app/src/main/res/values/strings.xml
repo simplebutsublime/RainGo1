@@ -1,8 +1,5 @@
 <resources>
     <string name="app_name">RainGo</string>
-<<<<<<< HEAD
     <string name="schedule_button">Schedule</string>
     <string name="closet_button">Closet</string>
-=======
->>>>>>> b8345316896da9c58d20005f79dadfb7d9ef5a7f
 </resources>
