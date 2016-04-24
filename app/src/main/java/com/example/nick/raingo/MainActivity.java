@@ -34,10 +34,11 @@ public class MainActivity extends AppCompatActivity {
             Toolbar mainToolbar = (Toolbar) findViewById(R.id.main_toolbar);
             setSupportActionBar(mainToolbar);
             intent = getIntent();
-            System.out.println("HERE IS THE INTENT: "+intent);
             if(intent != null){
                 location = intent.getStringExtra(LocationsPage.EXTRA_MESSAGE);
-                System.out.println("HELLO HERE IS LOCATION: " + location);
+                if(location == null){
+                    location = "State College, PA";
+                }
             }
             weatherGet();
             locationName = (TextView) findViewById(R.id.locationName);
