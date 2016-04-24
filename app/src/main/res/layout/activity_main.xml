@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.nick.raingo.MainActivity">
 
     <android.support.v7.widget.Toolbar
@@ -15,59 +15,6 @@
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
-    <Button
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/ScheduleButton"
-        android:textSize="25sp"
-        android:onClick="jumpToSchedulePage"
-        android:text="@string/schedule_button"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/weatherType"
-        android:layout_toEndOf="@+id/weatherType"
-        android:layout_marginBottom="16dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="16dp"
-        android:id="@+id/ClosetButton"
-        android:textSize="25sp"
-        android:text="@string/closet_button"
-        android:onClick="jumpToClosetPage"
-        android:layout_alignTop="@+id/ScheduleButton"
-        android:layout_toLeftOf="@+id/locationName"
-        android:layout_toStartOf="@+id/locationName" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="State College"
-        android:id="@+id/locationName"
-        android:layout_marginTop="104dp"
-        android:textSize="24sp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="77.0 F"
-        android:id="@+id/temperature"
-        android:layout_marginTop="10dp"
-        android:textSize="24sp"
-        android:layout_below="@+id/locationName"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sunny"
-        android:id="@+id/weatherType"
-        android:layout_below="@+id/temperature"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="7dp"
-        android:textSize="24dp" />
-
+    <include layout="@layout/content_main"/>
 
 </RelativeLayout>

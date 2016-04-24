@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,7 +18,7 @@ import java.io.File;
 /**
  * Created by Nick on 4/8/2016.
  */
-public class ClosetPage extends Activity {
+public class ClosetPage extends AppCompatActivity {
 
     SQLiteDatabase contactsDB = null;
 

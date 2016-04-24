@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.nick.raingo.MainActivity">
+    <item
+        android:id="@+id/action_location"
+        android:icon="@drawable/ic_search_black_24dp"
+        android:title="@string/action_location"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/action_help"
+        android:title="@string/action_help"
+        app:showAsAction="never"/>
+</menu>

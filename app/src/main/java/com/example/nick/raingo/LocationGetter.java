@@ -1,9 +1,11 @@
 package com.example.nick.raingo;
 
-import android.os.AsyncTask;
+/**
+ * Created by nitta_000 on 4/21/2016.
+ */
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.os.AsyncTask;
+import android.renderscript.ScriptGroup;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,10 +15,10 @@ import java.io.Reader;
 import java.net.URL;
 import java.nio.charset.Charset;
 
-/**
- * Created by nitta_000 on 4/23/2016.
- */
-public class JsonGetter extends AsyncTask<String, Void, JSONObject>{
+import org.json.JSONException;
+import org.json.JSONObject;
+
+class LocationGetter extends AsyncTask<String, Void, JSONObject> {
 
     JSONObject json = new JSONObject();
 
@@ -46,7 +48,8 @@ public class JsonGetter extends AsyncTask<String, Void, JSONObject>{
         }
     }
 
-    JsonGetter() {
+    LocationGetter() {
 
     }
+
 }
