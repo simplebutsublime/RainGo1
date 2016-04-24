@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     TextView locationName, temperature, weatherType;
     JsonParser weatherGet = new JsonParser();
     String[] locationInfo = new String[5];
+    static final String STATE_LOCATION = "userLocation";
     Boolean locationMenuClick = false;
     Intent intent;
 

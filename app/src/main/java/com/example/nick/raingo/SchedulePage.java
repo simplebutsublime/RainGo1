@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.View;
 
 /**
  * Created by Nick on 4/8/2016.
@@ -28,5 +29,10 @@ public class SchedulePage extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu_schedule, menu);
         return true;
+    }
+
+    public void jumpToMainPage(View view){
+        Intent getHomePage = new Intent(this, MainActivity.class);
+        startActivity(getHomePage);
     }
 }
