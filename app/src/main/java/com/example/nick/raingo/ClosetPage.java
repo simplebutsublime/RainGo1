@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,7 +18,7 @@ import java.io.File;
 /**
  * Created by Nick on 4/8/2016.
  */
-public class ClosetPage extends Activity {
+public class ClosetPage extends AppCompatActivity {
 
     SQLiteDatabase contactsDB = null;
 
@@ -80,8 +81,8 @@ public class ClosetPage extends Activity {
     public void addItem(View view) {
 
         // Get the contact name and email entered
-        String contactName = nameEditText.getText().toString();
-        String contactEmail = emailEditText.getText().toString();
+        String contactName = "Kevin Means";
+        String contactEmail = "kvnmeans9@gmail.com";
 
         // Execute SQL statement to insert new data
         contactsDB.execSQL("INSERT INTO contacts (name, email) VALUES ('" +
@@ -118,12 +119,9 @@ public class ClosetPage extends Activity {
                 // Keep getting results as long as they exist
             }while(cursor.moveToNext());
 
-            contactListEditText.setText(contactList);
-
         } else {
 
             Toast.makeText(this, "No Results to Show", Toast.LENGTH_SHORT).show();
-            contactListEditText.setText("");
 
         }
 
@@ -132,7 +130,7 @@ public class ClosetPage extends Activity {
     public void deleteContact(View view) {
 
         // Get the id to delete
-        String id = idEditText.getText().toString();
+        String id = "";
 
         // Delete matching id in database
         contactsDB.execSQL("DELETE FROM contacts WHERE id = " + id + ";");
