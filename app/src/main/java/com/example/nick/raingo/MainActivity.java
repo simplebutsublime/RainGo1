@@ -18,8 +18,8 @@ public class MainActivity extends AppCompatActivity {
     TextView locationName, temperature, weatherType;
     JsonParser weatherGet = new JsonParser();
     String[] locationInfo = new String[5];
-    Intent intent = getIntent();
     Boolean locationMenuClick = false;
+    Intent intent;
 
     public void weatherGet() {
         //locationInfo[0] is the name of the city, locationInfo[1] is the location key of the city
@@ -33,7 +33,12 @@ public class MainActivity extends AppCompatActivity {
             setContentView(R.layout.activity_main);
             Toolbar mainToolbar = (Toolbar) findViewById(R.id.main_toolbar);
             setSupportActionBar(mainToolbar);
-            System.out.println(intent);
+            intent = getIntent();
+            System.out.println("HERE IS THE INTENT: "+intent);
+            if(intent != null){
+                location = intent.getStringExtra(LocationsPage.EXTRA_MESSAGE);
+                System.out.println("HELLO HERE IS LOCATION: " + location);
+            }
             weatherGet();
             locationName = (TextView) findViewById(R.id.locationName);
             locationName.setText(locationInfo[0]);
