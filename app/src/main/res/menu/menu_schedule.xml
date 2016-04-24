@@ -3,6 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.nick.raingo.MainActivity">
+
+    <item
+        android:id="@+id/action_add"
+        android:title="@string/action_add"
+        android:icon="@drawable/ic_add"
+        app:showAsAction="ifRoom"
+        />
+
     <item
         android:id="@+id/action_help"
         android:title="@string/action_help"
