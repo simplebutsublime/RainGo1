@@ -36,7 +36,6 @@ public class JsonParser {
             json = json.getJSONObject("Imperial");
             tempValue = (Double) json.get("Value");
             tempUnit = (String) json.get("Unit");
-            System.out.println("It is " + weatherType + " and " + tempValue + " " + tempUnit);
         }catch(InterruptedException e) {
             System.out.println(e.getMessage());
         }catch(ExecutionException e){
@@ -53,7 +52,6 @@ public class JsonParser {
             String locationUrl = "http://apidev.accuweather.com/locations/v1/search?q=" + shortLocation + "&apikey=" + APIKEY;
             locationGet.execute(locationUrl);
             json = locationGet.get();
-            System.out.println("HERE'S JASON: " + json);
             locationInfo[0] = (String) json.get("EnglishName");
             locationInfo[1] = (String) json.get("Key");
             return locationInfo;

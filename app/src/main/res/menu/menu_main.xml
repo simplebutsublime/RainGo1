@@ -4,11 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.nick.raingo.MainActivity">
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings" />
+        android:id="@+id/action_location"
+        android:icon="@drawable/ic_search_black_24dp"
+        android:title="@string/action_location"
+        app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/action_help"
-        android:orderInCategory="100"
-        android:title="@string/action_help"/>
+        android:title="@string/action_help"
+        app:showAsAction="never"/>
 </menu>

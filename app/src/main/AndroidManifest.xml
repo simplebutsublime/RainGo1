@@ -25,6 +25,9 @@
         <activity android:name=".SchedulePage">
 
         </activity>
+        <activity android:name=".LocationsPage">
+
+        </activity>
     </application>
 
 </manifest>

@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
     TextView locationName, temperature, weatherType;
     JsonParser weatherGet = new JsonParser();
     String[] locationInfo = new String[5];
+    Intent intent = getIntent();
+    Boolean locationMenuClick = false;
 
     public void weatherGet() {
         //locationInfo[0] is the name of the city, locationInfo[1] is the location key of the city
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
             setContentView(R.layout.activity_main);
             Toolbar mainToolbar = (Toolbar) findViewById(R.id.main_toolbar);
             setSupportActionBar(mainToolbar);
+            System.out.println(intent);
             weatherGet();
             locationName = (TextView) findViewById(R.id.locationName);
             locationName.setText(locationInfo[0]);
@@ -43,6 +46,19 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
+    }
+
+    //Responds to actions on the action bar
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case R.id.action_location:
+                Intent getLocationsPage = new Intent(this, LocationsPage.class);
+                startActivity(getLocationsPage);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     public void jumpToClosetPage(View view) {
