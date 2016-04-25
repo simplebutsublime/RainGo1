@@ -5,7 +5,7 @@
     <string name="closet_button">Closet</string>
     <string name="action_location">Location</string>
     <string name="action_help">Help</string>
-    <string name="edit_locatoin_hint">Enter a city</string>
+    <string name="edit_location_hint">Enter a city</string>
     <string name="label_location">Location Search</string>
     <string name="button_location_search">Enter</string>
     <string name="action_add">Add</string>
