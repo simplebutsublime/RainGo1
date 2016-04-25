@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 /**
@@ -29,6 +30,19 @@ public class SchedulePage extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu_schedule, menu);
         return true;
+    }
+
+    //Responds to actions on the action bar
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case R.id.action_add:
+                Intent getAddEventsPage = new Intent(this, AddEventsPage.class);
+                startActivity(getAddEventsPage);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     public void jumpToMainPage(View view){

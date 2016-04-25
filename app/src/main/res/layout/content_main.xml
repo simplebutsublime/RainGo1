@@ -59,4 +59,44 @@
         android:layout_marginTop="7dp"
         android:textSize="24dp" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hat: None"
+        android:id="@+id/hat_view"
+        android:textSize="24sp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Shirt: Batman Tee"
+        android:id="@+id/shirt_view"
+        android:textSize="24sp"
+        android:layout_below="@+id/hat_view"
+        android:layout_marginTop="7dp"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pants: Khaki Shorts"
+        android:id="@+id/pants_view"
+        android:textSize="24sp"
+        android:layout_below="@+id/shirt_view"
+        android:layout_marginTop="7dp"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Shoes: Nike Sneakers"
+        android:id="@+id/shoes_view"
+        android:textSize="24sp"
+        android:layout_below="@+id/pants_view"
+        android:layout_marginTop="7dp"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

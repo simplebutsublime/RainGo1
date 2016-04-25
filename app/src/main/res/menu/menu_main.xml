@@ -4,6 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.nick.raingo.MainActivity">
     <item
+        android:id="@+id/action_refresh"
+        android:icon="@drawable/ic_refresh"
+        android:title="Refresh"
+        app:showAsAction="ifRoom"/>
+    <item
         android:id="@+id/action_location"
         android:icon="@drawable/ic_search_black_24dp"
         android:title="@string/action_location"

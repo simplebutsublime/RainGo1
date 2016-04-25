@@ -28,6 +28,12 @@
         <activity android:name=".LocationsPage">
 
         </activity>
+        <activity android:name=".AddClothesPage">
+
+        </activity>
+        <activity android:name=".AddEventsPage">
+        
+        </activity>
     </application>
 
 </manifest>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
@@ -7,16 +7,28 @@
     android:layout_height="match_parent"
     tools:context=".LocationsPage">
 
-    <EditText android:id="@+id/edit_location"
-        android:layout_weight="1"
-        android:layout_width="0dp"
+    <TextView android:id="@+id/label_location"
         android:layout_height="wrap_content"
-        android:hint="Enter a city" />
-
-    <Button
+        android:layout_width="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="@string/label_location"
+        android:textSize="24sp"
+        />
+    <EditText android:id="@+id/edit_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter"
-        android:onClick="sendLocation"/>
+        android:layout_below="@id/label_location"
+        android:hint="@string/edit_location_hint"
+        android:layout_toLeftOf="@+id/button_location_search"
+        android:layout_alignParentLeft="true" />
 
-</LinearLayout>
+    <Button android:id="@+id/button_location_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_location_search"
+        android:onClick="sendLocation"
+        android:layout_alignTop="@+id/edit_location"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
+</RelativeLayout>
